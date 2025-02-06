@@ -58,14 +58,14 @@ public class TestSales {
         request.pathRequest(jsonPayload, idOpp, "Opportunity");
         Map<String, Object> opportunityQualification = soqlQuery.getOpportunityById(idOpp);
         //se verifica que se actualice la probabilidad
-        Assert.assertEquals(opportunityQualification.get("Probability").toString(), "50.0");
+        Assert.assertEquals(opportunityQualification.get("Probability").toString(), "10.0");
 
         //modificar etapa a Value Proposition
         jsonPayload.put("StageName", "Value Proposition");
         request.pathRequest(jsonPayload, idOpp, "Opportunity");
         Map<String, Object> oppValueProposition = soqlQuery.getOpportunityById(idOpp);
         //se verifica que se actualice la probabilidad
-        Assert.assertEquals(oppValueProposition.get("Probability").toString(), "10.0");
+        Assert.assertEquals(oppValueProposition.get("Probability").toString(), "50.0");
 
     }
 
@@ -74,8 +74,8 @@ public class TestSales {
             + "Precondicion: Asociar un cliente sin contratos")
     public void validacionflow_creacionDeContratoExitoso() {
         JSONObject jsonPayload = new JSONObject();
-        jsonPayload.put("Name", "Oportunidad de Prueba");
-        jsonPayload.put("CloseDate", "2025-12-31");
+        jsonPayload.put("Name", "Belen Sosa");
+        jsonPayload.put("CloseDate", "2025-01-30");
         jsonPayload.put("StageName", "Closed Won");
         jsonPayload.put("Amount", 30000);
         jsonPayload.put("AccountId", "001ak00000SjNcAAAV");
@@ -97,7 +97,7 @@ public class TestSales {
             "Precondicion: Asociar un cliente sin contratos")
     public void validacionflow_creacionDeContratoFallida() {
         JSONObject jsonPayload = new JSONObject();
-        jsonPayload.put("Name", "Oportunidad de Prueba");
+        jsonPayload.put("Name", "Marcos Perez");
         jsonPayload.put("CloseDate", "2025-01-30");
         jsonPayload.put("StageName", "Closed Won");
         jsonPayload.put("Amount", 10000);

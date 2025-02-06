@@ -18,8 +18,7 @@ public class SOQLQuery {
     public Map<String, Object> getContractByAccountId(String accountId) {
         // Validar que accountId no sea nulo antes de hacer la consulta
         if (accountId == null || accountId.isEmpty()) {
-            System.out.println("Error: accountId es nulo o vacío");
-            return null;
+            throw new RuntimeException("Error: accountId es nulo o vacío");
         }
 
         // Imprimir la consulta para depuración
